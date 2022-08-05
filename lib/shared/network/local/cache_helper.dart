@@ -1,18 +1,18 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
 class CacheHelper {
-  static Future saveCategoryList(List categoryList) async {
-    Box box = await Hive.openBox('box');
-    await box.put('categoryList', categoryList);
-    box.close();
-  }
+  // static Future saveCategoryList(List categoryList) async {
+  //   Box box = await Hive.openBox('box');
+  //   await box.put('categoryList', categoryList);
+  //   box.close();
+  // }
 
-  static Future<List> getCategoryList() async {
-    Box box = await Hive.openBox('box');
-    List data = box.get('categoryList');
-    box.close();
-    return data;
-  }
+  // static Future<List> getCategoryList() async {
+  //   Box box = await Hive.openBox('box');
+  //   List data = box.get('categoryList');
+  //   box.close();
+  //   return data;
+  // }
 
   static clearCategoryList() async {
     Box box = await Hive.openBox('box');
@@ -29,9 +29,9 @@ class CacheHelper {
     box.close();
   }
 
-  static Future<Map> getHadithList(int categoryId, int pageNumber) async {
+  static Future<Map?> getHadithList(int categoryId, int pageNumber) async {
     Box box = await Hive.openBox('box');
-    Map data = box.get('$categoryId$pageNumber');
+    Map? data = box.get('$categoryId$pageNumber');
     box.close();
 
     return data;
@@ -51,9 +51,9 @@ class CacheHelper {
     box.close();
   }
 
-  static Future<Map> getHadith(int hadithId, String lang) async {
+  static Future<Map?> getHadith(int hadithId, String lang) async {
     Box box = await Hive.openBox('box');
-    Map data = box.get('$hadithId$lang');
+    Map? data = box.get('$hadithId$lang');
     box.close();
 
     return data;

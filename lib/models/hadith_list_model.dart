@@ -11,12 +11,12 @@ class HadithListModel {
 }
 
 class Data {
-  late String id;
+  late int id;
   late String title;
   late List translations;
   HadithModel? hadith;
   Data.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = int.parse(json['id']);
     title = json['title'];
     translations = json['translations'];
   }
